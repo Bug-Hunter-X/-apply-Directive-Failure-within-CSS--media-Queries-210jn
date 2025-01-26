@@ -1,0 +1,15 @@
+The solution is to avoid using `@apply` inside media queries or at-rules. Directly apply the styles within the conditional block.  This ensures that the styles are correctly processed and applied in the specific context.
+
+Here's the corrected code:
+
+```css
+@media (min-width: 768px) {
+  .my-class {
+    @apply bg-blue-500; /* Direct application of styles */
+  }
+}
+```
+
+Alternatively, you can move the `@apply` outside the media query if it's not context-dependent.  If the styles should apply regardless of screen size, keep the `@apply` outside the media query.
+
+This direct approach ensures that the styles are properly applied within the media query's scope, resolving the issue.
