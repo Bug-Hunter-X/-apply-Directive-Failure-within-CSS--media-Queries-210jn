@@ -1,0 +1,9 @@
+This bug arises when using Tailwind CSS's `@apply` directive within a CSS `@media` query or other at-rule.  The `@apply` directive, while incredibly convenient, might unexpectedly fail to apply the desired styles within these contextual blocks. For instance, consider this example:
+
+```css
+@media (min-width: 768px) {
+  .my-class @apply md\:bg-blue-500;
+}
+```
+
+The expectation is that when the screen width is at least 768px, the `.my-class` element will have a blue background. However, Tailwind's post-processing might not correctly resolve the `@apply` within the media query, leading to the styles not being applied. 
